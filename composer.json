@@ -11,12 +11,12 @@
   ],
   "minimum-stability": "stable",
   "require": {
-    "php": "^7.2.5|^8.0",
+    "php": "^7.2.5|^8.0|^8.1",
     "guzzlehttp/guzzle": "^6.3.1|^7.0.1",
-    "illuminate/support": "^6.0|^7.0|^8.0|^9.0",
-    "illuminate/database": "^6.0|^7.0|^8.0|^9.0",
-    "illuminate/routing": "^6.0|^7.0|^8.0|^9.0",
-    "illuminate/http": "^6.0|^7.0|^8.0|^9.0",
+    "illuminate/support": "^6.0|^7.0|^8.0|^9.0|^10.4.1",
+    "illuminate/database": "^6.0|^7.0|^8.0|^9.0|^10.4.1",
+    "illuminate/routing": "^6.0|^7.0|^8.0|^9.0|^10.4.1",
+    "illuminate/http": "^6.0|^7.0|^8.0|^9.0|^10.4.1",
     "ext-json": "*"
   },
   "require-dev": {
