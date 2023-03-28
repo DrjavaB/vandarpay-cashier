@@ -90,8 +90,13 @@ class Payment extends Model
         try {
             $response = Client::request('post', $endpoint, $params, false);
         } catch (ResponseException $exception) {
+            $reject = $exception->getResponse()->json();
+            if (array_key_exists('errors', $reject))
+                $errors = $reject['errors'];
+            elseif (array_key_exists('error', $reject))
+                $errors = $reject['error'];
             $this->update([
-                'errors' => json_encode($exception->getResponse()->json()['errors']),
+                'errors' => $errors,
                 'status' => 'FAILED'
             ]);
             return false;
