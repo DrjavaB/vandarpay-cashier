@@ -74,10 +74,8 @@ class Payment extends Model
      */
     public function verify($request_status = null): bool
     {
-        if ($request_status === 'OK')
-            if ($this->status !== 'INIT') {
-                return $this->status == self::STATUS_SUCCEED;
-            }
+        if ($request_status === 'OK' && $this->status !== 'INIT')
+            return $this->status == self::STATUS_SUCCEED;
 
         if ($request_status === self::STATUS_FAILED) {
             $this->update(['status' => self::STATUS_FAILED]);
