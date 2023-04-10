@@ -42,7 +42,8 @@ class Vandar
 		$business_slug = config('vandar.business_slug');
 		$api = strtoupper($api);
 		$append_version = true;
-		$additional = $additional ? '/' . $additional : '';
+		if ($api != 'IPG_API' && $api != 'MANDATE')
+			$additional = $additional ? '/' . $additional : '';
 		switch ($api) {
 			case 'IPG_API':
 				$base_url = $base_url.'api/';
