@@ -10,6 +10,7 @@ class Vandar
 	
 	// URL Generation Functionality
 	protected const API_VERSIONS = [
+		'API' => 3,
 		'AUTH' => '3',
 		'TRANSACTION' => '3',
 		'SETTLEMENT' => '3',
@@ -45,6 +46,10 @@ class Vandar
 		if (!in_array($api, ['IPG_API', 'MANDATE', 'IPG']))
 			$additional = $additional ? '/' . $additional : '';
 		switch ($api) {
+			case 'API':
+				$base_url = config('vandar.api_base_url');
+				$additional = 'business/' . $business_slug  . $additional;
+			break;
 			case 'IPG_API':
 				$base_url = $base_url.'api/';
 				$api = 'IPG';
