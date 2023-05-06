@@ -8,6 +8,9 @@ class UnexpectedAPIErrorException extends ResponseException
 {
     public function __construct(ResponseInterface $response, array $context=[])
     {
-        parent::__construct($response, 'Unexpected API Error (HTTP ' . $response->getStatusCode(). ') occurred. Contact Vandar support.', 500, $context);
+	    parent::__construct($response,
+		    $response->json()['errors'][0],
+		    $response->getStatusCode(),
+		    $context);
     }
 }

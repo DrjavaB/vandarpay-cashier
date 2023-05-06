@@ -8,6 +8,9 @@ class TooManyRequestsException extends ResponseException
 {
     public function __construct(ResponseInterface $response, array $context)
     {
-        parent::__construct($response, 'Encountered ' . $response->getStatusCode() . ' error while sending a request to Vandar.', 500, $context);
+	    parent::__construct($response,
+		    $response->json()['errors'][0],
+		    $response->getStatusCode(),
+		    $context);
     }
 }

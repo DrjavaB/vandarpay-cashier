@@ -12,14 +12,12 @@ trait RelationsConcern
     {
         return $this->hasMany(Payment::class);
     }
-
-
+	
     public function mandates()
     {
         return $this->hasMany(Mandate::class);
     }
-
-
+	
     public function withdrawals()
     {
         return $this->hasManyThrough(Withdrawal::class, Mandate::class, 'user_id', 'authorization_id', 'id', 'authorization_id');

@@ -8,6 +8,9 @@ class InvalidPayloadException extends ResponseException
 {
     public function __construct(ResponseInterface $response, array $context=[])
     {
-        parent::__construct($response, 'Given payload caused a ' . $response->getStatusCode() . ' error.', 500, $context);
+        parent::__construct($response,
+	        $response->json()['errors'][0],
+	        $response->getStatusCode(),
+	    $context);
     }
 }
