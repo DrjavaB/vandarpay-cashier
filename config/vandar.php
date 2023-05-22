@@ -51,7 +51,18 @@ return [
     #------------------------
     'api_key' => env('VANDAR_API_KEY'),
 
-//    'api_base_url' =>  null,
-//    'ipg_base_url' =>  null,
-//    'mandate_redirect_url' => null,
+	#------------------------
+	# PORT for sending requests (SAMAN | BEHPARDAKHT)
+	#------------------------
+	'port' => env('VANDAR_PORT'),
+
+    #------------------------
+	# TOKEN for private requests
+	#------------------------
+	'access_token' => env('VANDAR_ACCESS_TOKEN'),
+	'refresh_token' => env('VANDAR_REFRESH_TOKEN'),
+	
+	'api_base_url' => 'https://api.vandar.io/',
+	'ipg_base_url' => 'https://ipg.vandar.io/',
+	'mandate_redirect_url' => 'https://subscription.vandar.io/authorizations/',
 ];
