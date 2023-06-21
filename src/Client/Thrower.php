@@ -28,6 +28,7 @@ class Thrower
 	 */
 	public static function process(ResponseInterface $response, array $context = [])
 	{
+		
 		if (
             gettype($response->json(), 'array') &&
             array_key_exists('message', $response->json())
