@@ -40,6 +40,7 @@ class Vandar
 	public static function url(string $api, string $additional = '', string $version_number = null): string
 	{
 		$base_url = config('vandar.ipg_base_url', 'https://ipg.vandar.io/');
+		$base_api = config('vandar.api_base_url');
 		$business_slug = config('vandar.business_slug');
 		$api = strtoupper($api);
 		$append_version = true;
@@ -67,7 +68,8 @@ class Vandar
 			break;
 			case 'SETTLEMENT_LEGACY':
 			case 'SETTLEMENT':
-				$additional = 'business/' . $business_slug . '/settlement/' . $additional;
+				$base_url = $base_api;
+				$additional = 'business/' . $business_slug . '/settlement' . $additional;
 			break;
 			case 'CUSTOMER':
 				$base_url = config('vandar.api_base_url');
