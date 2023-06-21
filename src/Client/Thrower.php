@@ -2,6 +2,8 @@
 
 namespace Vandar\Cashier\Client;
 
+use Log;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Psr\Http\Message\ResponseInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Exception\MethodNotAllowedException;
@@ -26,6 +28,14 @@ class Thrower
 	 */
 	public static function process(ResponseInterface $response, array $context = [])
 	{
+		if (
+            gettype($response->json(), 'array') &&
+            array_key_exists('message', $response->json())
+        ) {
+            Log::debug($response->getStatusCode() . ' ' . $response->getBody());
+            throw new HttpException($response->getStatusCode(), $response->json()['message']);
+        }
+
 		// Response code is in 100, 200, 300 series.
 		if ($response->getStatusCode() < 400) {
 			return;
