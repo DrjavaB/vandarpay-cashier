@@ -64,5 +64,6 @@ return [
 	
 	'api_base_url' => 'https://api.vandar.io/',
 	'ipg_base_url' => 'https://ipg.vandar.io/',
+	'batche_settlement_url' => 'https://batch.vandar.io/',
 	'mandate_redirect_url' => 'https://subscription.vandar.io/authorizations/',
 ];
