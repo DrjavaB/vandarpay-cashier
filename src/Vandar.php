@@ -40,7 +40,7 @@ class Vandar
      */
     public static function url(string $api, string $additional = '', string $version_number = null): string
     {
-        $api_url = config('vandar.api_base_url', 'https://api.vandar.io/');
+        $base_url = $api_url = config('vandar.api_base_url', 'https://api.vandar.io/');
         $ipg_url = config('vandar.ipg_base_url', 'https://ipg.vandar.io/');
         $batch_settlement_url = config('vandar.batch_settlement_url', 'https://batch.vandar.io/');
         $business_slug = config('vandar.business_slug');
