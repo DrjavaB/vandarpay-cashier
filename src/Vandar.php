@@ -42,7 +42,7 @@ class Vandar
     {
         $api_url = config('vandar.api_base_url', 'https://api.vandar.io/');
         $ipg_url = config('vandar.ipg_base_url', 'https://ipg.vandar.io/');
-        $batche_settlement_url = config('vandar.batche_settlement_url', 'https://batch.vandar.io/');
+        $batch_settlement_url = config('vandar.batch_settlement_url', 'https://batch.vandar.io/');
         $business_slug = config('vandar.business_slug');
         $api = strtoupper($api);
         $append_version = true;
@@ -74,7 +74,7 @@ class Vandar
                 $additional = 'business/' . $business_slug . '/settlement' . $additional;
                 break;
             case 'BATCH_SETTLEMENT':
-                $base_url = $batche_settlement_url . 'api/';
+                $base_url = $batch_settlement_url . 'api/';
                 $additional = 'business/' . $business_slug . $additional;
                 break;
             case 'CUSTOMER':
