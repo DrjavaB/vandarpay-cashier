@@ -53,6 +53,9 @@ class Vandar
                 $base_url = config('vandar.api_base_url');
                 $additional = 'business/' . $business_slug . $additional;
                 break;
+            case 'IPG':
+                $base_url = $ipg_url;
+                break;
             case 'IPG_API':
                 $base_url = $ipg_url . 'api/';
                 $api = 'IPG';
